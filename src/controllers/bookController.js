@@ -7,7 +7,6 @@ const createBook = async (req, res) => {
     try {
         let data = req.body
         let { ISBN, title } = data
-
         let uniqueData = await bookModel.find({ $and: [{ $or: [{ ISBN: ISBN }, { title: title }] }, { isDeleted: false }] })
 
         let arr = []
@@ -42,7 +41,6 @@ const getBooks1 = async (req, res) => {
     }
 }
 // GET BOOK BY params
-
 const getBookbyparms = async (req, res) => {
     try {
         let { bookId } = req.params
